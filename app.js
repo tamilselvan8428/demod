@@ -10,9 +10,10 @@ const app = express();
 
 // Database configuration
 const dbConfig = {
-    host: process.env.DB_HOST || 'localhost',
+    host: process.env.DB_HOST || 'db', // 'db' is the Docker service name
+    port: process.env.DB_PORT || 3306,// 'db' matches the compose service name
     user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
+    password: process.env.DB_PASSWORD || 'your_strong_password_here',
     database: process.env.DB_NAME || 'image_storage',
     waitForConnections: true,
     connectionLimit: 10,
